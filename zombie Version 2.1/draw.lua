@@ -44,7 +44,7 @@ function love.draw()
   end
 
   --------------------------------------------------------------
-  world:draw()
+  --world:draw()
   camera:unset()
 end
 

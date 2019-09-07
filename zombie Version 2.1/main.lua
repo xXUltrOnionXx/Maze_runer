@@ -51,6 +51,7 @@ function love.load()
     --testwall:setType('static')
     --testwall:setCollisionClass('Solid')
 
+    sound = love.audio.newSource("hollow.ogg", "stream")
 
 end
 
