@@ -1,47 +1,9 @@
 require "zombie_player_angle"
+require "draw_map"
 function love.draw()
   camera:set()
-  --------------------------------------------------------------
 
-  love.graphics.draw(sprites.background, 0, 0)
-
-  --love.graphics.draw(sprites.Holz_wand_vertic, 250, 250, nil, nil, nil, 250, 10)
-
-  --love.graphics.draw(sprites.Holz_wand_horiz, 250, 250, nil, nil, nil, 0, 10)
-
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 140, 205)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, 270)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, 262.5, 172.5)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, 262.5, 222)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, 150)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, 91.5, 130)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, 10)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, 100)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, 270, -30)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, -10, 250)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -256.5, 270)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -55, 285)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, -214, 237)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, 10, -37.5)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -5, 10)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 125, -270)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, -270)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, -200)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, -63.5, -290)
-  love.graphics.draw(sprites.Holz_wand_horiz_mini, 250, 250, nil, nil, nil, -140, -290)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, -115.5, 189)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -5, -200)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -157, 150)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, -250, 105)
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 140, -100)
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 95, -100)
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 83, -100)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -350, -300)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, -325, -150)
-  love.graphics.draw(sprites.Holz_wand_horiz_mid, 250, 250, nil, nil, nil, -417, -70)
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, -460, -230)
-  love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, -292.5, 50)
-  --------------------------------------------------------------
+  draw_map()
 
   if gameState == 1 then
     love.graphics.setFont(myFont)
