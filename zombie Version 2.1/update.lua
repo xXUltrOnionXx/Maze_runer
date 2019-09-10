@@ -14,7 +14,7 @@ function love.update(dt)
 
   if gameState == 2 then
 
-    if love.keyboard.isDown("s") and player.collider:getY() < love.graphics.getHeight() then
+    if love.keyboard.isDown("s")  then --and player.collider:getY() < love.graphics.getHeight()
       --COLLIDER.y = COLLIDER.y + COLLIDER.speed * dt
       player.collider:setPosition(player.collider:getX(), player.collider:getY() + player.speed * dt)
       --player.collider:setX(COLLIDER.x +5)
@@ -27,7 +27,7 @@ function love.update(dt)
 
     end
 
-    if love.keyboard.isDown("w") and player.collider:getY() > 0 then
+    if love.keyboard.isDown("w") and player.collider:getY() > 0 then  --
       --COLLIDER.y = COLLIDER.y - COLLIDER.speed * dt
       player.collider:setPosition(player.collider:getX(), player.collider:getY() - player.speed * dt)
       --player.collider:setX(COLLIDER.x +5)
@@ -40,7 +40,7 @@ function love.update(dt)
 
     end
 
-    if love.keyboard.isDown("a") and player.collider:getX() > 0 then
+    if love.keyboard.isDown("a") and player.collider:getX() > 0 then --
       --COLLIDER.x = COLLIDER.x - COLLIDER.speed * dt
       player.collider:setPosition(player.collider:getX() - player.speed * dt, player.collider:getY())
       --player.collider:setX(COLLIDER.x +5)
@@ -53,7 +53,7 @@ function love.update(dt)
 
     end
 
-    if love.keyboard.isDown("d") and player.collider:getX() < love.graphics.getWidth() then
+    if love.keyboard.isDown("d") then --and player.collider:getX() < love.graphics.getWidth()
       --COLLIDER.x = COLLIDER.x + COLLIDER.speed * dt
       player.collider:setPosition(player.collider:getX() + player.speed * dt, player.collider:getY())
       --player.collider:setX(COLLIDER.x +5)
@@ -183,7 +183,7 @@ function love.update(dt)
       timer = timer - dt
       if timer <= 0 then
         --
-        spawnZombies()
+        --spawnZombies()
         maxTime = maxTime * 0.95
         timer = maxTime
       end

@@ -44,6 +44,9 @@ function love.draw()
   end
 
   --------------------------------------------------------------
+
+    love.graphics.printf("Y: "..player.y - love.mouse.getY()..", ".."X: "..player.x - love.mouse.getX(), 0, love.graphics.getHeight() - 100, love.graphics.getWidth(), "right")
+  --------------------------------------------------------------
   --world:draw()
   camera:unset()
 end

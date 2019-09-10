@@ -40,3 +40,11 @@ function camera:setScale(sx, sy)
   self.scaleX = sx or self.scaleX
   self.scaleY = sy or self.scaleY
 end
+
+function camera:getX()
+  return love.mouse.getX() * self.scaleX + self.x
+end
+
+function camera:getY()
+  return love.mouse.getY() * self.scaleY + self.y
+end
