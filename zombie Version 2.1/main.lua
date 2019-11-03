@@ -17,14 +17,13 @@ function love.load()
     sprites.bullet = love.graphics.newImage('sprites/bullet.png')
 	  sprites.fireball = love.graphics.newImage('sprites/fireball.png')
     sprites.zombie = love.graphics.newImage('sprites/zombie.png')
-    sprites.background = love.graphics.newImage('sprites/background.png')
+    sprites.background = love.graphics.newImage('sprites/background_with_walls.png')
     sprites.Holz_wand_vertic = love.graphics.newImage('sprites/Holz_wand_vertic.png')
     sprites.Holz_wand_horiz = love.graphics.newImage('sprites/Holz_wand_horiz.png')
     sprites.Holz_wand_vertic_mid = love.graphics.newImage('sprites/Holz_wand_vertic_mid.png')
     sprites.Holz_wand_horiz_mid = love.graphics.newImage('sprites/Holz_wand_horiz_mid.png')
     sprites.Holz_wand_horiz_mini = love.graphics.newImage('sprites/Holz_wand_horiz_mini.png')
     sprites.Holz_wand_vertic_mini = love.graphics.newImage('sprites/Holz_wand_vertic_mini.png')
-
 
     player = {}
     player.x = love.graphics.getWidth()/2
@@ -52,6 +51,8 @@ function love.load()
     --testwall:setCollisionClass('Solid')
 
     sound = love.audio.newSource("hollow.ogg", "stream")
+
+    map_drawn = false
 
 end
 
