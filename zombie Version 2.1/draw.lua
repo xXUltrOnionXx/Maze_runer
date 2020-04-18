@@ -3,9 +3,7 @@ require "draw_map"
 function love.draw()
   camera:set()
 
-
-    draw_map()
-  
+  draw_map()
 
   if gameState == 1 then
     love.graphics.setFont(myFont)
@@ -46,6 +44,7 @@ function love.draw()
   end
 
   --------------------------------------------------------------
+  --love.graphics.printf("Delta time: "..love.timer.getDelta(), 0, love.graphics.getHeight() - 100, love.graphics.getWidth(), "right")
 
     --love.graphics.printf("Y: "..player.y - love.mouse.getY()..", ".."X: "..player.x - love.mouse.getX(), 0, love.graphics.getHeight() - 100, love.graphics.getWidth(), "right")
   --------------------------------------------------------------

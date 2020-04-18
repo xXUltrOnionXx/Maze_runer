@@ -39,7 +39,7 @@ function spawnBullet()
   bullet = {}
   bullet.x = player.x
   bullet.y = player.y
-  bullet.speed = 2500
+  bullet.speed = 500
   bullet.direction = player_mouse_angle()
   bullet.dead = false
 

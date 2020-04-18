@@ -6,7 +6,6 @@ require "update"
 require "player_mouse_angle"
 
 function love.load()
-
     ----------------------Collider----------------
     wf = require 'windfield' --collider
     world = wf.newWorld(0, 0, false)
@@ -28,8 +27,8 @@ function love.load()
     player = {}
     player.x = love.graphics.getWidth()/2
     player.y = love.graphics.getHeight()/2
-    player.speed = 100
-    player.hp = 100
+    player.speed = 200
+    player.hp = 1
 
     zombies = {}
     bullets = {}
@@ -53,7 +52,7 @@ function love.load()
     sound = love.audio.newSource("hollow.ogg", "stream")
 
     map_drawn = false
-
+    timepassed = 0
 end
 
 

@@ -1,9 +1,10 @@
 require "zombie_player_angle"
 require "spawn_functions"
+require "distance"
 
 function love.update(dt)
 
-    world:update(dt)
+    world:update(dt*2)
 
     if player.x > love.graphics.getWidth() / 2 then
       camera.x = player.x -love.graphics.getWidth() / 2
@@ -71,8 +72,6 @@ function love.update(dt)
 
     z.collider:setPosition(z.x, z.y)
 
-
-
     z.x = z.x + math.cos(zombie_player_angle(z)) * z.speed * dt
     z.y = z.y + math.sin(zombie_player_angle(z)) * z.speed * dt
 
@@ -86,8 +85,8 @@ function love.update(dt)
         end
       end
 
-      if player.hp == 0 then
-          for i,z in ipairs(zombie) do
+      if player.hp <= 0 then
+          for i,z in ipairs(zombies) do
             z.collider:destroy()
           end
 
@@ -95,8 +94,11 @@ function love.update(dt)
             zombies[i] = nil
           end
 
+          player.collider:destroy()
+
           gameState = 1
           player.hp = 100
+          player.collider = world:newRectangleCollider(385, 287,  sprites.player:getWidth(),  sprites.player:getHeight())
           player.x = love.graphics.getWidth()/2
           player.y = love.graphics.getHeight()/2
       end
@@ -121,7 +123,7 @@ function love.update(dt)
 
   for i=#bullets,1,-1 do -- # return the number of all items inside the table
     local b = bullets[i]
-    if b.x < 0 or b.y < 0 or b.x > love.graphics.getWidth() or b.y > love.graphics.getHeight() then
+    if distance(b.x, b.y, player.x, player.y) > 500 then --b.x < 0 or b.y < 0 or b.x > love.graphics.getWidth() or b.y > love.graphics.getHeight()
       table.remove(bullets, i)
     end
   end
@@ -130,7 +132,7 @@ function love.update(dt)
 
   for i=#Fireballs,1,-1 do -- # return the number of all items inside the table
     local b = Fireballs[i]
-    if b.x < 0 or b.y < 0 or b.x > love.graphics.getWidth() or b.y > love.graphics.getHeight() then
+    if distance(b.x, b.y, player.x, player.y) > 500 then -- b.x < 0 or b.y < 0 or b.x > love.graphics.getWidth() or b.y > love.graphics.getHeight()
       table.remove(Fireballs, i)
     end
   end
@@ -183,8 +185,8 @@ function love.update(dt)
       timer = timer - dt
       if timer <= 0 then
         --
-        --spawnZombies()
-        maxTime = maxTime * 0.95
+        spawnZombies()
+        --maxTime = maxTime * 0.95
         timer = maxTime
       end
     end
