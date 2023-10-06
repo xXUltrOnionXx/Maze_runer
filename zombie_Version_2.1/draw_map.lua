@@ -1,6 +1,5 @@
 --------------------------------------------------------------
 function draw_map()
-  print("HELLO wORLD")
   love.graphics.draw(sprites.background, 0, 0)
   local wall_arr = {}
   local wall = {}
@@ -8,33 +7,34 @@ function draw_map()
   if(map_drawn == false) then
     wall.collider = world:newRectangleCollider(0 , 0, love.graphics:getWidth()+95, 27)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_1:setCollisionClass('Solid')
 
     wall.collider = world:newRectangleCollider(0 , 860, love.graphics:getWidth()+95, 35)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_2:setCollisionClass('Solid')
 
     wall.collider = world:newRectangleCollider(120 , 90, 40, love.graphics:getHeight()/2-95)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_1:setCollisionClass('Solid')
 
     wall.collider = world:newRectangleCollider(120 , 90, love.graphics:getWidth()/2-95, 30)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_2:setCollisionClass('Solid')
 
     wall.collider = world:newRectangleCollider(0 , 90, 35, love.graphics:getHeight()+170)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_1:setCollisionClass('Solid')
 
     wall.collider = world:newRectangleCollider(860 , 0, 35, love.graphics:getHeight()+130)
     wall.collider:setType('static')
+    wall.collider:setCollisionClass('Solid')
     table.insert(wall_arr, wall)
-    --wall_1:setCollisionClass('Solid')
+
     map_drawn = true
   elseif (map_drawn == true) then
     for i,w in ipairs(wall_arr) do

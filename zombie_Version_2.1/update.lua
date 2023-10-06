@@ -15,6 +15,7 @@ function love.update(dt)
 
   if gameState == 2 then
 
+    -----------------------------------Player Control--------------------------
     if love.keyboard.isDown("s")  then --and player.collider:getY() < love.graphics.getHeight()
       --COLLIDER.y = COLLIDER.y + COLLIDER.speed * dt
       player.collider:setPosition(player.collider:getX(), player.collider:getY() + player.speed * dt)
@@ -68,6 +69,8 @@ function love.update(dt)
     end
   end
 
+
+  ---------------------------------Enemis Control---------------------------------
   for i, z in ipairs(zombies) do
 
     z.collider:setPosition(z.x, z.y)
@@ -105,22 +108,13 @@ function love.update(dt)
     end
   end
 
-  --------------------------------------------------------------
+  ---------------------------------Bullet Controll---------------------------------
 
   for i,b in ipairs(bullets) do
     b.x = b.x + math.cos(b.direction) * b.speed * dt
     b.y = b.y + math.sin(b.direction) * b.speed * dt
   end
-
-  --------------------------------------------------------------
-
-  for i,b in ipairs(Fireballs) do
-    b.x = b.x + math.cos(b.direction) * b.speed * dt
-    b.y = b.y + math.sin(b.direction) * b.speed * dt
-  end
-
-  --------------------------------------------------------------
-
+  ---------------------------------Bullet destroy Controll-------------------------
   for i=#bullets,1,-1 do -- # return the number of all items inside the table
     local b = bullets[i]
     if distance(b.x, b.y, player.x, player.y) > 500 then --b.x < 0 or b.y < 0 or b.x > love.graphics.getWidth() or b.y > love.graphics.getHeight()
@@ -128,7 +122,14 @@ function love.update(dt)
     end
   end
 
-  --------------------------------------------------------------
+  ---------------------------------Fireball Controll---------------------------------
+
+  for i,b in ipairs(Fireballs) do
+    b.x = b.x + math.cos(b.direction) * b.speed * dt
+    b.y = b.y + math.sin(b.direction) * b.speed * dt
+  end
+
+  ---------------------------------Fireball destroy Controll-------------------------
 
   for i=#Fireballs,1,-1 do -- # return the number of all items inside the table
     local b = Fireballs[i]

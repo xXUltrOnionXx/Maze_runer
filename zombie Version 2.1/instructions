@@ -1,9 +1,0 @@
-Firball: Wenn man mindestens 15 Scores besitzt kann man einnen Fireball benutzen um gegener zu zerstören
-
-Wände: Die wände sollten nicht durchlaufen werden können
-      function: world = winfield.newworld() --collider ( body, fixture, shape)
-
-Lebensbalken: Jede Sekunde die ein Zombie an einem Kleben bleibt, verringert sich das lebensbalken des Spielers um eins.
-            Genauere Instruction: 1. Wenn der Zombie einen Spieler berührt verliert der Spieler 5 LebensPunkte.
-                                  2. Erst nach 5 sekunden nimmt der Spieler wieder Schaden vom Zombie, falls das Zombie noch am Spieler klebt
-                                  3. Wenn der Spieler 0 Lebenspunkte hat, verliert der Spieler.
