@@ -7,7 +7,8 @@ function spawnZombies()
   zombie.dead = false
   zombie.isattacking = false
   zombie.dmg = 5
-  zombie.dmg_cooldown = 3
+  zombie.dmg_cooldown = 0
+  zombie.start = love.timer.getTime()
   zombie.collider = world:newRectangleCollider(zombie.x, zombie.y, 30, 30) --newCircleCollider(COLLIDER.x, COLLIDER.y, 30)
   zombie.collider:setCollisionClass('Solid')
 

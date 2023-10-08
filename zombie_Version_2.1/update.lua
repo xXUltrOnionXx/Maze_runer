@@ -71,39 +71,36 @@ function love.update(dt)
 
 
   ---------------------------------Enemis Control---------------------------------
+
   for i, z in ipairs(zombies) do
-
     z.collider:setPosition(z.x, z.y)
-
     z.x = z.x + math.cos(zombie_player_angle(z)) * z.speed * dt
     z.y = z.y + math.sin(zombie_player_angle(z)) * z.speed * dt
 
     if distanceBetween(z.x, z.y, player.x, player.y) < 20 then
-
-      if zombie.dmg_cooldown == 3 and player.hp > 0 then
-        player.hp = player.hp - zombie.dmg
-        zombie.dmg_cooldown = zombie.dmg_cooldown - dt
-        if zombie.dmg_cooldown <= 0 then
-            zombie.dmg_cooldown = 3
-        end
+      z.dmg_cooldown = love.timer.getTime() - z.start
+      if z.dmg_cooldown > 3 and player.hp > 0 then
+        player.hp = player.hp - z.dmg
+        z.dmg_cooldown = 0
+        z.start = love.timer.getTime()
       end
 
       if player.hp <= 0 then
-          for i,z in ipairs(zombies) do
-            z.collider:destroy()
-          end
+        for i,z in ipairs(zombies) do
+          z.collider:destroy()
+        end
 
-          for i,z in ipairs(zombies) do
-            zombies[i] = nil
-          end
+        for i,z in ipairs(zombies) do
+          zombies[i] = nil
+        end
 
-          player.collider:destroy()
+        player.collider:destroy()
 
-          gameState = 1
-          player.hp = 100
-          player.collider = world:newRectangleCollider(385, 287,  sprites.player:getWidth(),  sprites.player:getHeight())
-          player.x = love.graphics.getWidth()/2
-          player.y = love.graphics.getHeight()/2
+        gameState = 1
+        player.hp = 100
+        player.collider = world:newRectangleCollider(385, 287,  sprites.player:getWidth(),  sprites.player:getHeight())
+        player.x = love.graphics.getWidth()/2
+        player.y = love.graphics.getHeight()/2
       end
     end
   end

@@ -4,50 +4,50 @@ function draw_map()
   local wall_arr = {}
   local wall = {}
 
-  if(map_drawn == false) then
-    wall.collider = world:newRectangleCollider(0 , 0, love.graphics:getWidth()+95, 27)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    wall.collider = world:newRectangleCollider(0 , 860, love.graphics:getWidth()+95, 35)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    wall.collider = world:newRectangleCollider(120 , 90, 40, love.graphics:getHeight()/2-95)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    wall.collider = world:newRectangleCollider(120 , 90, love.graphics:getWidth()/2-95, 30)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    wall.collider = world:newRectangleCollider(0 , 90, 35, love.graphics:getHeight()+170)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    wall.collider = world:newRectangleCollider(860 , 0, 35, love.graphics:getHeight()+130)
-    wall.collider:setType('static')
-    wall.collider:setCollisionClass('Solid')
-    table.insert(wall_arr, wall)
-
-    map_drawn = true
-  elseif (map_drawn == true) then
-    for i,w in ipairs(wall_arr) do
-        w.collider:destroy()
-    end
-    map_drawn = true
-  end
-
-
-  love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 140, 205)
-  local wall_1 = world:newRectangleCollider(110 , 45, sprites.Holz_wand_vertic_mini:getWidth(), sprites.Holz_wand_vertic_mini:getHeight())
-  wall_1:setType('static')
-  wall_1:setCollisionClass('Solid')
+  -- if(map_drawn == false) then
+  --   wall.collider = world:newRectangleCollider(0 , 0, love.graphics:getWidth()+95, 27)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   wall.collider = world:newRectangleCollider(0 , 860, love.graphics:getWidth()+95, 35)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   wall.collider = world:newRectangleCollider(120 , 90, 40, love.graphics:getHeight()/2-95)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   wall.collider = world:newRectangleCollider(120 , 90, love.graphics:getWidth()/2-95, 30)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   wall.collider = world:newRectangleCollider(0 , 90, 35, love.graphics:getHeight()+170)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   wall.collider = world:newRectangleCollider(860 , 0, 35, love.graphics:getHeight()+130)
+  --   wall.collider:setType('static')
+  --   wall.collider:setCollisionClass('Solid')
+  --   table.insert(wall_arr, wall)
+  --
+  --   map_drawn = true
+  -- elseif (map_drawn == true) then
+  --   for i,w in ipairs(wall_arr) do
+  --       w.collider:destroy()
+  --   end
+  --   map_drawn = true
+  -- end
+  --
+  --
+  -- love.graphics.draw(sprites.Holz_wand_vertic_mini, 250, 250, nil, nil, nil, 140, 205)
+  -- local wall_1 = world:newRectangleCollider(110 , 45, sprites.Holz_wand_vertic_mini:getWidth(), sprites.Holz_wand_vertic_mini:getHeight())
+  -- wall_1:setType('static')
+  -- wall_1:setCollisionClass('Solid')
 
   --[[love.graphics.draw(sprites.Holz_wand_vertic_mid, 250, 250, nil, nil, nil, 250, 270)
   local wall_2 = world:newRectangleCollider(0, 0, sprites.Holz_wand_vertic_mid:getWidth()-90, sprites.Holz_wand_vertic_mid:getHeight()-50)
