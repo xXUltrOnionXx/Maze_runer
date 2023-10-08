@@ -28,7 +28,7 @@ function love.load()
     player.x = love.graphics.getWidth()/2
     player.y = love.graphics.getHeight()/2
     player.speed = 200
-    player.hp = 1
+    player.hp = 100
 
     zombies = {}
     bullets = {}

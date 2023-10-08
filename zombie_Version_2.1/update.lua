@@ -1,6 +1,7 @@
 require "zombie_player_angle"
 require "spawn_functions"
 require "distance"
+--require "pathfinder"
 
 function love.update(dt)
 

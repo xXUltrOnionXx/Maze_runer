@@ -1,0 +1,68 @@
+-- require "zombie_player_angle"
+-- require "spawn_functions"
+-- require "distance"
+--
+--
+-- -- Funktion zur Überprüfung, ob ein Punkt (x, y) in einem Wand-Collider ist
+-- function isPointInCollider(x, y, wallCoordinates)
+--     for _, wall in ipairs(wallCoordinates) do
+--         local x1, y1, x2, y2 = unpack(wall)
+--         if x >= x1 and x <= x2 and y >= y1 and y <= y2 then
+--             return true
+--         end
+--     end
+--     return false
+-- end
+--
+-- -- Funktion zur Aktualisierung der Zombie-Bewegung unter Verwendung des Pathfinders
+-- function updateZombies(zombies, player, dt, wallCoordinates)
+--     for i, z in ipairs(zombies) do
+--         z.collider:setPosition(z.x, z.y)
+--
+--         -- Berechne den Pfad des Zombies zum Spieler
+--         local path = findPath(z.x, z.y, player.x, player.y, wallCoordinates)
+--
+--         if path then
+--             -- Bewege den Zombie entlang des Pfades
+--             local targetX, targetY = path[1].x, path[1].y
+--             local angle = math.atan2(targetY - z.y, targetX - z.x)
+--             local speed = z.speed * dt
+--             local newX = z.x + math.cos(angle) * speed
+--             local newY = z.y + math.sin(angle) * speed
+--
+--             -- Überprüfe, ob der Zombie das Ziel erreicht hat
+--             if distanceBetween(z.x, z.y, targetX, targetY) < 2 then
+--                 table.remove(path, 1)
+--             end
+--
+--             z.x, z.y = newX, newY
+--         end
+--
+--         if distanceBetween(z.x, z.y, player.x, player.y) < 20 then
+--             z.dmg_cooldown = love.timer.getTime() - z.start
+--             if z.dmg_cooldown > 3 and player.hp > 0 then
+--                 player.hp = player.hp - z.dmg
+--                 z.dmg_cooldown = 0
+--                 z.start = love.timer.getTime()
+--             end
+--
+--             if player.hp <= 0 then
+--                 for i, z in ipairs(zombies) do
+--                     z.collider:destroy()
+--                 end
+--
+--                 for i, z in ipairs(zombies) do
+--                     zombies[i] = nil
+--                 end
+--
+--                 player.collider:destroy()
+--
+--                 gameState = 1
+--                 player.hp = 100
+--                 player.collider = world:newRectangleCollider(385, 287, sprites.player:getWidth(), sprites.player:getHeight())
+--                 player.x = love.graphics.getWidth() / 2
+--                 player.y = love.graphics.getHeight() / 2
+--             end
+--         end
+--     end
+-- end
