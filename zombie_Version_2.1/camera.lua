@@ -5,6 +5,14 @@ camera.scaleX = 1
 camera.scaleY = 1
 camera.rotation = 0
 
+-- Define the background dimensions
+local backgroundWidth = 894
+local backgroundHeight = 896
+
+-- Get window dimensions
+local windowWidth = love.graphics.getWidth()
+local windowHeight = love.graphics.getHeight()
+
 function camera:set()
   love.graphics.push()
   love.graphics.rotate(-self.rotation)
@@ -31,9 +39,15 @@ function camera:scale(sx, sy)
   self.scaleY = self.scaleY * (sy or sx)
 end
 
-function camera:setPosition(x, y)
-  self.x = x or self.x
-  self.y = y or self.y
+-- Update `camera:setPosition` to follow the player and stay within the background boundaries
+function camera:setPosition(playerX, playerY)
+  -- Calculate the target camera position, centered on the player
+  local targetX = playerX - love.graphics.getWidth() / 2
+  local targetY = playerY - love.graphics.getHeight() / 2
+
+  -- Clamp the target position within the background boundaries
+  self.x = math.max(0, math.min(targetX, backgroundWidth - love.graphics.getWidth()))
+  self.y = math.max(0, math.min(targetY, backgroundHeight - love.graphics.getHeight()))
 end
 
 function camera:setScale(sx, sy)

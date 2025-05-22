@@ -1,8 +1,52 @@
 --------------------------------------------------------------
 function draw_map()
   love.graphics.draw(sprites.background, 0, 0)
-  local wall_arr = {}
-  local wall = {}
+
+  -- Define wall positions and dimensions in a table
+  -- local spriteData = {
+  --   -- Top wall sections
+  --   { sprite = sprites.Holz_wand_horiz, x = 0, y = 0, width = 500, height = sprites.Holz_wand_horiz:getHeight() },
+  --   { sprite = sprites.Holz_wand_horiz, x = 550, y = 0, width = 400, height = sprites.Holz_wand_horiz:getHeight() },
+  --
+  --   -- Left vertical walls
+  --   { sprite = sprites.Holz_wand_vertic, x = 0, y = 0, width = sprites.Holz_wand_vertic:getWidth(), height = 300 },
+  --   { sprite = sprites.Holz_wand_vertic, x = 0, y = 350, width = sprites.Holz_wand_vertic:getWidth(), height = 400 },
+  --
+  --   -- Right vertical walls
+  --   { sprite = sprites.Holz_wand_vertic, x = 1020, y = 0, width = sprites.Holz_wand_vertic:getWidth(), height = 300 },
+  --   { sprite = sprites.Holz_wand_vertic, x = 1020, y = 350, width = sprites.Holz_wand_vertic:getWidth(), height = 400 },
+  --
+  --   -- Middle horizontal walls
+  --   { sprite = sprites.Holz_wand_horiz, x = 200, y = 100, width = 400, height = sprites.Holz_wand_horiz:getHeight() },
+  --   { sprite = sprites.Holz_wand_horiz, x = 650, y = 250, width = 300, height = sprites.Holz_wand_horiz:getHeight() },
+  --   { sprite = sprites.Holz_wand_horiz_mid, x = 400, y = 500, width = 250, height = sprites.Holz_wand_horiz_mid:getHeight() },
+  --
+  --   -- Additional middle vertical walls
+  --   { sprite = sprites.Holz_wand_vertic, x = 700, y = 200, width = sprites.Holz_wand_vertic:getWidth(), height = 200 },
+  --   { sprite = sprites.Holz_wand_vertic, x = 500, y = 150, width = sprites.Holz_wand_vertic:getWidth(), height = 300 },
+  --
+  --   -- Bottom horizontal walls
+  --   { sprite = sprites.Holz_wand_horiz, x = 100, y = 750, width = 400, height = sprites.Holz_wand_horiz:getHeight() },
+  --   { sprite = sprites.Holz_wand_horiz, x = 600, y = 850, width = 400, height = sprites.Holz_wand_horiz:getHeight() },
+  -- }
+  --
+  -- -- Loop through each wall section to draw and create colliders
+  -- for _, data in ipairs(spriteData) do
+  --   love.graphics.draw(data.sprite, data.x, data.y)
+  --
+  --   -- Create a static collider for each wall
+  --   local collider = world:newRectangleCollider(data.x, data.y, data.width, data.height)
+  --   collider:setType('static')
+  --   collider:setCollisionClass('Solid')
+  -- end
+
+  -- sprites.Holz_wand_vertic = love.graphics.newImage('sprites/Holz_wand_vertic.png')
+  -- sprites.Holz_wand_horiz = love.graphics.newImage('sprites/Holz_wand_horiz.png')
+  -- sprites.Holz_wand_vertic_mid = love.graphics.newImage('sprites/Holz_wand_vertic_mid.png')
+  -- sprites.Holz_wand_horiz_mid = love.graphics.newImage('sprites/Holz_wand_horiz_mid.png')
+  -- sprites.Holz_wand_horiz_mini = love.graphics.newImage('sprites/Holz_wand_horiz_mini.png')
+  -- sprites.Holz_wand_vertic_mini = love.graphics.newImage('sprites/Holz_wand_vertic_mini.png')
+
 
   -- if(map_drawn == false) then
   --   wall.collider = world:newRectangleCollider(0 , 0, love.graphics:getWidth()+95, 27)
